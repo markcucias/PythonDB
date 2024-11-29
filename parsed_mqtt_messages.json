@@ -1,0 +1,54 @@
+[
+    {
+        "sensor": {
+            "sensor_id": "mkr-wierden",
+            "place": "Wierden",
+            "sensor_type": "mkr",
+            "bat_volt": null
+        },
+        "gateway": {
+            "gateway_id": "slot-wierden",
+            "latitude": 52.36891310514845,
+            "longitude": 6.602898538112641,
+            "altitude": 10,
+            "rssi": -53,
+            "snr": 7
+        },
+        "message": {
+            "sensor_id": "mkr-wierden",
+            "gateway_id": "slot-wierden",
+            "time": "2024-11-29T10:32:22.654475305Z",
+            "ext_temp": 15.2,
+            "int_temp": null,
+            "pressure": 1033.5,
+            "light": 255,
+            "humidity": 68
+        }
+    },
+    {
+        "sensor": {
+            "sensor_id": "lht-gronau",
+            "place": "Gronau",
+            "sensor_type": "lht",
+            "bat_volt": 2.589
+        },
+        "gateway": {
+            "gateway_id": "lora-gronau-centrum",
+            "latitude": 52.212645202154,
+            "longitude": 7.03965711534693,
+            "altitude": 41,
+            "rssi": -91,
+            "snr": 7.75
+        },
+        "message": {
+            "sensor_id": "lht-gronau",
+            "gateway_id": "lora-gronau-centrum",
+            "time": "2024-11-29T10:33:51.618223372Z",
+            "ext_temp": 7.23,
+            "int_temp": null,
+            "pressure": null,
+            "light": 1090,
+            "humidity": 91
+        }
+    }
+]
