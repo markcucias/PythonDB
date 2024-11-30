@@ -9,21 +9,21 @@
         },
         "gateway": {
             "gateway_id": "slot-wierden",
-            "time": "2024-11-30T22:47:46.937885907Z",
+            "time": "2024-11-30T23:07:47.147291472Z",
             "latitude": 52.36891310514845,
             "longitude": 6.602898538112641,
             "altitude": 10,
-            "rssi": -55,
-            "snr": 8
+            "rssi": -53,
+            "snr": 8.5
         },
         "message": {
             "sensor_id": "mkr-wierden",
             "gateway_id": "slot-wierden",
-            "time": "2024-11-30T22:47:46.981856404Z",
+            "time": "2024-11-30T23:07:47.191686165Z",
             "ext_temp": 13.5,
             "int_temp": null,
-            "pressure": 1026.5,
-            "light": 0,
+            "pressure": 1026.0,
+            "light": 1,
             "humidity": 74
         }
     },
@@ -37,21 +37,21 @@
         },
         "gateway": {
             "gateway_id": "packetbroker",
-            "time": "2024-11-30T22:48:05.299857581Z",
+            "time": "2024-11-30T23:08:05.525218947Z",
             "latitude": 52.22121,
             "longitude": 6.8857374,
             "altitude": 66,
-            "rssi": -105,
-            "snr": 7.8
+            "rssi": -108,
+            "snr": 7
         },
         "message": {
             "sensor_id": "mkr-saxion",
             "gateway_id": "packetbroker",
-            "time": "2024-11-30T22:48:05.310748752Z",
-            "ext_temp": 19.3,
+            "time": "2024-11-30T23:08:05.534365452Z",
+            "ext_temp": 19.4,
             "int_temp": null,
             "pressure": 1022.5,
-            "light": 0,
+            "light": 1,
             "humidity": 35
         }
     }

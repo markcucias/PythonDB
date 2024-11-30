@@ -140,42 +140,6 @@ def on_message(client, userdata, message):
             connection.close()
 
 
-        conn = pyodbc.connect(
-            'DRIVER={ODBC Driver 17 for SQL Server};'
-            'SERVER=WIN-Q6CTI51L8BB;'
-            'DATABASE=WeatherDB;'
-            'Trusted_Connection=yes;'
-        )
-
-        cursor = conn.cursor()
-
-        cursor.execute("""
-        IF NOT EXISTS (SELECT 1 FROM [WeatherDB].[w].[Gateway] WHERE gateway_id = ?)
-            BEGIN
-                INSERT INTO [WeatherDB].[w].[Gateway] (gateway_id, time_, latitude, longitude, altitude, rssi, snr)
-                VALUES (?, ?, ?, ?, ?, ?, ?);
-            END
-        """, (gateway['gateway_id'], gateway['gateway_id'], gateway['time'], gateway['latitude'], gateway['longitude'], gateway['altitude'], gateway['rssi'], gateway['snr']))
-
-        cursor.execute("""
-                IF NOT EXISTS (SELECT 1 FROM [WeatherDB].[w].[Sensor] WHERE sensor_id = ?)
-                    BEGIN
-                        INSERT INTO [WeatherDB].[w].[Sensor] (sensor_id, sensor_type, place, bat_stat, bat_volt)
-                        VALUES (?, ?, ?, ?, ?);
-                    END
-                """, (sensor['sensor_id'], sensor['sensor_id'], sensor['sensor_type'], sensor['place'], sensor['bat_stat'], sensor['bat_volt']))
-
-        cursor.execute("""
-                INSERT INTO [WeatherDB].[w].[Message] (sensor_id, gateway_id, time_, ext_temp, int_temp, pressure, light, humidity)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?);
-                """, (message['sensor_id'], message['gateway_id'], message['time'], message['ext_temp'], message['int_temp'], message['pressure'], message['light'], message['humidity']))
-
-        conn.commit()
-
-        conn.close()
-
-        print("Data inserted into the SQL Server database successfully!")
-
 
         save_results_to_file()
     except Exception as e:
@@ -277,6 +241,9 @@ def parse_message(data):
         elif decoded_data[6] == 1:
             internal_temp = (decoded_data[7] << 8 | decoded_data[8]) / 100
             internal_temp, external_temp = external_temp, internal_temp
+        else:
+            light = 0
+
         print(f"Battery: {battery}, Internal temperature: {internal_temp}, Humidity: {humidity}, External temperature: {external_temp}, Luminosity: {light}")
 
     else:
